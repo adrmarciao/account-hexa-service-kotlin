@@ -1,13 +1,11 @@
 package br.com.project.account.adapter.repository
 
 import br.com.project.account.model.Account
-import br.com.project.account.ports.AccountRepositoryPort
-import org.springframework.data.jpa.repository.JpaRepository
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor
+import org.springframework.data.r2dbc.repository.R2dbcRepository
 import org.springframework.stereotype.Repository
-import java.util.*
+import reactor.core.publisher.Flux
 
 @Repository
-interface AccountRepository : AccountRepositoryPort, JpaRepository<Account, Long>, JpaSpecificationExecutor<Account> {
-    fun findByNumero(numero: Long): Optional<Account>
+interface AccountRepository : R2dbcRepository<Account, Long> {
+    fun findByNumero(numero: Long): Flux<Account>
 }

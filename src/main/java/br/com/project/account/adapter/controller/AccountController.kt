@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
+import reactor.core.publisher.Flux
+import reactor.core.publisher.Mono
 
 @RestController
 @RequestMapping("/conta", produces = ["application/json"])
@@ -18,12 +20,13 @@ class AccountController {
 
     @GetMapping("/{id}")
     @ResponseBody
-    fun get(@PathVariable("id") id: Long): ResponseEntity<AccountDTO> {
-        return ResponseEntity(AccountDTO(accountService.find(id)), HttpStatus.OK)
+    fun get(@PathVariable("id") id: Long): Flux<AccountDTO> {
+        return accountService.find(id).map { AccountDTO(it) }
     }
 
     @PostMapping("/", consumes = ["application/json"])
     @ResponseBody
-    fun post(@RequestBody contaDTO: AccountDTO): AccountDTO = AccountDTO(accountService.saveUpdate(AccountDTO.valueOf(contaDTO)))
+    fun post(@RequestBody contaDTO: AccountDTO): Mono<AccountDTO> = accountService
+            .saveUpdate(AccountDTO.valueOf(contaDTO)).map { AccountDTO(it) }
 
 }
