@@ -4,7 +4,7 @@ import br.com.project.account.model.Account
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 
-interface AccountServicePort {
-    fun find(number: Long): Flux<Account>
-    fun saveUpdate(account: Account): Mono<Account>
+interface AccountPersistencePort {
+    fun findByNumero(numero: Long): Flux<Account>
+    fun save(account: Account): Mono<Account>
 }

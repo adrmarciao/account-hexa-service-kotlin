@@ -1,22 +1,20 @@
 package br.com.project.account.application.service
 
-import br.com.project.account.adapter.repository.AccountRepository
-import br.com.project.account.application.exception.AccountNotFoundException
 import br.com.project.account.model.Account
+import br.com.project.account.ports.AccountPersistencePort
 import br.com.project.account.ports.AccountServicePort
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import reactor.core.publisher.Flux
+import reactor.core.publisher.Mono
 
 @Service
 class AccountService : AccountServicePort {
 
     @Autowired
-    private lateinit var repository: AccountRepository
+    private lateinit var repository: AccountPersistencePort
 
-    override fun find(number: Long): Account {
-        val result = repository.findByNumero(number)
-        return result.orElseThrow { AccountNotFoundException(number) }
-    }
+    override fun find(number: Long): Flux<Account> = repository.findByNumero(number)
 
-    override fun saveUpdate(account: Account): Account = repository.save(account)
+    override fun saveUpdate(account: Account): Mono<Account> = repository.save(account)
 }

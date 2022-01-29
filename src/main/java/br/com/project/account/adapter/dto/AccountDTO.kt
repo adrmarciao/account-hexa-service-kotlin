@@ -8,11 +8,11 @@ data class AccountDTO(
         @JsonProperty("numero", required = true) val numero: Long? = null,
 ) {
 
-    constructor(account: Account) : this(account.id, account.numero)
+    constructor(account: Account) : this(account.idConta, account.numero)
 
     companion object {
         fun valueOf(value: AccountDTO): Account = Account().apply {
-            id = value.id
+            idConta = value.id
             numero = value.numero
         }
     }

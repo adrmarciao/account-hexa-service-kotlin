@@ -1,21 +1,23 @@
 package br.com.project.account.model
 
-import javax.persistence.*
+import org.springframework.data.annotation.Id
+import org.springframework.data.annotation.Transient
+import org.springframework.data.domain.Persistable
 
-
-@Entity
-@Table(name = "tb_conta")
-@SequenceGenerator(name = "seq", sequenceName = "conta_values_seq", allocationSize = 1)
-class Account {
+class Account: Persistable<Long> {
     @Id
-    @Column(name = "id_conta")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
-    var id: Long? = null
+    var idConta: Long? = null
 
-    @Column(name = "numero")
     var numero: Long? = null
 
-    @Column(name = "saldo")
     var saldo: Long? = null
+
+    @Transient
+    var isNewEntity: Boolean = false
+
+    override fun isNew(): Boolean = isNewEntity
+
+    override fun getId(): Long? = idConta
+
 
 }
