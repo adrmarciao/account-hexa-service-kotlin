@@ -1,0 +1,18 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+	<changeSet id="criando estrutura inicial" author="author">
+		<createSequence sequenceName="conta_values_seq" startValue="1"/>
+		<createTable tableName="tb_conta">
+			<column name="id_conta" type="java.sql.Types.BIGINT"
+					valueComputed="[conta_values_seq].NEXTVAL">
+				<constraints
+						primaryKey="true"
+						primaryKeyName="pk_conta"
+						nullable="false"/>
+			</column>
+			<column name="numero" type="java.sql.Types.BIGINT"/>
+			<column name="saldo" type="java.sql.Types.BIGINT"/>
+		</createTable>
+	</changeSet>
+</databaseChangeLog>
