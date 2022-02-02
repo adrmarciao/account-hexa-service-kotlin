@@ -1,6 +1,6 @@
 package br.com.project.account.adapter.repository
 
-import br.com.project.account.model.Account
+import br.com.project.account.application.model.Account
 import br.com.project.account.ports.AccountPersistencePort
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Primary

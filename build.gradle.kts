@@ -26,7 +26,6 @@ dependencies {
 	implementation("org.springdoc:springdoc-openapi-webflux-ui:1.6.5")
 	runtimeOnly("io.r2dbc:r2dbc-postgresql")
 	runtimeOnly("org.postgresql:postgresql")
-	annotationProcessor("org.projectlombok:lombok")
 //	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 //		exclude group: "org.junit.vintage", module: "junit-vintage-engine"
 //	}
