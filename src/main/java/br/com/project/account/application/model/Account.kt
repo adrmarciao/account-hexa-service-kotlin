@@ -1,4 +1,4 @@
-package br.com.project.account.model
+package br.com.project.account.application.model
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.annotation.Transient

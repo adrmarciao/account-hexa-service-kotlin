@@ -1,6 +1,6 @@
 package br.com.project.account.application.service
 
-import br.com.project.account.model.Account
+import br.com.project.account.application.model.Account
 import br.com.project.account.ports.AccountPersistencePort
 import br.com.project.account.ports.AccountServicePort
 import org.springframework.beans.factory.annotation.Autowired
