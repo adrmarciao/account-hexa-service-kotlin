@@ -1,6 +1,6 @@
 package br.com.project.account.adapter.dto
 
-import br.com.project.account.model.Account
+import br.com.project.account.application.model.Account
 import com.fasterxml.jackson.annotation.JsonProperty
 
 data class AccountDTO(

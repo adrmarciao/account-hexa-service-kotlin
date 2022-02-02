@@ -5,7 +5,7 @@ Construindo microservice de conta para fins Didáticos.
 
 Microservice com arquitetura Hexagonal
 
-![Hexagonal](https://uploads-ssl.webflow.com/5eebed4f86986c7148161d11/5f4fe4418bbe242216f77452_hexagonal-architecture-v3.png)
+<img src="https://uploads-ssl.webflow.com/5eebed4f86986c7148161d11/5f4fe4418bbe242216f77452_hexagonal-architecture-v3.png" height="200" />
 
 ## Estrutura de pacotes
 
