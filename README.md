@@ -58,7 +58,9 @@ Ao executar o comando a cima. A imagem será criada automáticamente, caso não 
 
 ![endpoints](files/endpoints.png)
 
-Caso esteja rodando localmente a aplicação. A documentação estará disponível [aqui](http://localhost:8080/webjars/swagger-ui/index.html#/).
+Caso esteja rodando a aplicação via docker-compose estará disponivel [aqui](http://localhost:8080/webjars/swagger-ui/index.html#/).
+Caso esteja rodando a aplicação via kubernetes estará disponivel [aqui](http://localhost/webjars/swagger-ui/index.html#/).
+
 Para checar os tópicos enviados, basta abrir [Kowl](https://github.com/cloudhut/kowl).
 - Executado via docker-compose [aqui](http://localhost:8082/)
 - Executado via kubernetes [aqui](http://localhost:8080/)
