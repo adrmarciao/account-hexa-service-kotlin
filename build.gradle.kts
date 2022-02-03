@@ -24,6 +24,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 	implementation("org.springdoc:springdoc-openapi-webflux-ui:1.6.5")
+	implementation("org.springframework.kafka:spring-kafka:2.8.2")
 	runtimeOnly("io.r2dbc:r2dbc-postgresql")
 	runtimeOnly("org.postgresql:postgresql")
 //	testImplementation("org.springframework.boot:spring-boot-starter-test") {
