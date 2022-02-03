@@ -1,5 +1,5 @@
 # Microservice 
-Construindo microservice de conta para fins Didáticos.
+Construindo microservice de conta para fins didáticos.
 
 ## Arquitetura
 
@@ -12,7 +12,7 @@ Microservice com arquitetura Hexagonal
 A estrutura adotada nesse microserviço foi dividas em pacotes, mas pode ser divida em pequenos modulos isolados. 
 Dessa forma os pacotes foram dividos em:
 
- - Adapter (Implementação de conectores, podendo ser divididos em output/inpunt)
+ - Adapter (Implementação de conectores, podendo ser dividídos em outputs e inputs)
    - Controller
    - DTO
    - Repository 
@@ -33,6 +33,32 @@ Dessa forma os pacotes foram dividos em:
 * [PostgreSQL](https://www.postgresql.org/)
 * [JacksonJSON](https://www.baeldung.com/jackson/)
 * [Webflux](https://docs.spring.io/spring-framework/docs/5.0.0.M5/spring-framework-reference/html/web-reactive.html)
+* [Swagger](https://swagger.io/)
+
+## Executar
+
+
+Para executar o projeto, é necessário instalado:
+ - Docker;
+ - Gradle ou usar o gradle da importação do projeto;
+ - Docker-compose;
+ 
+### Buildar Projeto
+
+      gradlew clean
+      gradlew build
+
+### Criar imagem
+
+      docker-compose up
+
+Ao executar o comando a cima. A imagem será criada automáticamente, caso não exista.
+
+## Endpoints
+
+![endpoints](files/endpoints.png)
+
+Caso esteja rodando localmente a aplicação. A documentação estará disponível [aqui](http://localhost:8080/webjars/swagger-ui/index.html#/).
 
 ## Objetivos
 
@@ -42,4 +68,5 @@ Dessa forma os pacotes foram dividos em:
 - Adicionar R2DBC :heavy_check_mark:
 - Criar docker-compose para facilitar desenvolvimento :heavy_check_mark:
 - Adicionar Kubernetes :heavy_check_mark:
-- Adicionar comunicação com Kafka
+- Adicionar comunicação com Kafka :heavy_check_mark:
+- Adicionar teste unitário
