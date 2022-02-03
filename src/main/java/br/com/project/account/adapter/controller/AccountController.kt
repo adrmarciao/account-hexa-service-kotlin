@@ -1,12 +1,11 @@
 package br.com.project.account.adapter.controller
 
 import br.com.project.account.adapter.dto.AccountDTO
+import br.com.project.account.adapter.dto.MessageDTO
 import br.com.project.account.ports.AccountServicePort
 import br.com.project.account.ports.MessageProducerPort
-import io.swagger.v3.oas.annotations.OpenAPIDefinition
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.Parameter
-import io.swagger.v3.oas.annotations.info.Info
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.beans.factory.annotation.Autowired
@@ -32,7 +31,6 @@ class AccountController {
     @GetMapping("/{accountNumber}")
     @ResponseBody
     fun get(@PathVariable("accountNumber") accountNumber: Long): Flux<AccountDTO> {
-        messageProducerPort.sendMessage("teste", "adriano")
         return accountService.find(accountNumber).map { AccountDTO(it) }
     }
 
@@ -42,5 +40,13 @@ class AccountController {
     @ResponseBody
     fun post(@RequestBody contaDTO: AccountDTO): Mono<AccountDTO> = accountService
             .saveUpdate(AccountDTO.valueOf(contaDTO)).map { AccountDTO(it) }
+
+    @Operation(description = "Kafka Message")
+    @ApiResponse(description = "Caso a mensagem tenha sido enviada", responseCode = "200")
+    @PostMapping("/kafka/{topic}/send", consumes = ["application/json"])
+    @ResponseBody
+    fun send(@PathVariable("topic") topic: String, @RequestBody message: MessageDTO) {
+        messageProducerPort.sendMessage(topic, message.message)
+    }
 
 }

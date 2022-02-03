@@ -60,6 +60,8 @@ Ao executar o comando a cima. A imagem será criada automáticamente, caso não 
 
 Caso esteja rodando localmente a aplicação. A documentação estará disponível [aqui](http://localhost:8080/webjars/swagger-ui/index.html#/).
 
+Obs: Caso queira apenas enviar um topico para Kafka, basta executar o endpoint.
+
 ## Objetivos
 
 - Criar projeto initial com arquitetura hexagonal :heavy_check_mark:
